@@ -5,12 +5,6 @@ $lang['Description'] = 'Descripci&oacute;n';
 $lang['changelog']   = array(
 
 '2.10.5' => ' 26/05/2013
-- [Mejoras]
-
-- [Cambio]
-
-- [Optimización]
-
 - [Bugs]
 #10337: Bug que no mostraba correctamente el tiempo de conexión en la alianza (By Think).-
 #10530: Agregado texto faltante "Campos" en el overview.- 
