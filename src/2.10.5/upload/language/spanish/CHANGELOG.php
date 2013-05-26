@@ -12,6 +12,7 @@ $lang['changelog']   = array(
 - [Optimización]
 
 - [Bugs]
+#10337: Bug que no mostraba correctamente el tiempo de conexión en la alianza (By Think).-
 #10530: Agregado texto faltante "Campos" en el overview.- 
 #10340: Bug donde la formula de la planta de fusión no funcionaba correctamente.-
 #10322: Bug en el overview con la información de las flotas.-
@@ -19,6 +20,7 @@ $lang['changelog']   = array(
 #10313: Bug en la galaxia pone "done" aunque haya un error al enviar la flota.-
 #10718: Bug que no incluía la producción básica a la producción actual en la vista del imperio (By pele87).-
 #10731: Bug que permitía atacar a los administradores, aunque la opción estuviera bloqueada (By pele87).-
+#10794: Bug en las alianzas que no le daba correctamente permisos al administrador de la misma (By Think).-
 #10799: Bug en la protección de novatos. El jugador fuerte no era calculado correctamente (By Razican).-
 #10895: Bug en plugins.php causaba un Warning (By Razican).-
 ',
