@@ -19,7 +19,9 @@ $lang['changelog']   = array(
 #10314: Bug en galaxia que mostraba a uno mismo como un jugador débil o fuerte.-
 #10313: Bug en la galaxia pone "done" aunque haya un error al enviar la flota.-
 #10718: Bug que no incluía la producción básica a la producción actual en la vista del imperio (By pele87).-
+#10730: Bug en la búsqueda donde en tag de la alianza no redireccionaba correctamente a la info page de la alianza (By Loucouss).-
 #10731: Bug que permitía atacar a los administradores, aunque la opción estuviera bloqueada (By pele87).-
+#10752: Bug en el tooltip de flotas y mostraba mal el tiempo de retorno en la página de flotas (By jstar).-
 #10794: Bug en las alianzas que no le daba correctamente permisos al administrador de la misma (By Think).-
 #10799: Bug en la protección de novatos. El jugador fuerte no era calculado correctamente (By Razican).-
 #10895: Bug en plugins.php causaba un Warning (By Razican).-
