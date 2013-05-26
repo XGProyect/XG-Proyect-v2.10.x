@@ -4,7 +4,7 @@ $lang['Version']     = 'Versión';
 $lang['Description'] = 'Descripción';
 $lang['changelog']   = array(
 
-'2.10.5' => ' 06/11/2012
+'2.10.5' => ' 26/05/2013
 - [Mejoras]
 
 - [Cambio]
@@ -17,6 +17,10 @@ $lang['changelog']   = array(
 #10322: Bug en el overview con la información de las flotas.-
 #10314: Bug en galaxia que mostraba a uno mismo como un jugador débil o fuerte.-
 #10313: Bug en la galaxia pone "done" aunque haya un error al enviar la flota.-
+#10718: Bug que no incluía la producción básica a la producción actual en la vista del imperio (By pele87).-
+#10731: Bug que permitía atacar a los administradores, aunque la opción estuviera bloqueada (By pele87).-
+#10799: Bug en la protección de novatos. El jugador fuerte no era calculado correctamente (By Razican).-
+#10895: Bug en plugins.php causaba un Warning (By Razican).-
 ',
 
 '2.10.4' => ' 06/08/2012
