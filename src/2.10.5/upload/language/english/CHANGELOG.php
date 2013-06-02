@@ -4,7 +4,7 @@ $lang['Version']     = 'Versi&oacute;n';
 $lang['Description'] = 'Descripci&oacute;n';
 $lang['changelog']   = array(
 
-'2.10.5' => ' 26/05/2013
+'2.10.5' => ' 15/06/2013
 - [Bugs]
 #10337: Bug que no mostraba correctamente el tiempo de conexión en la alianza (By Think).-
 #10530: Agregado texto faltante "Campos" en el overview.- 
@@ -20,6 +20,10 @@ $lang['changelog']   = array(
 #10799: Bug en la protección de novatos. El jugador fuerte no era calculado correctamente (By Razican).-
 #10895: Bug en plugins.php causaba un Warning (By Razican).-
 #10908: Bug que permitía ver los acs de otros jugadores e incluso unirse a los mismos (By quaua).-
+-- [Nueva numeración]
+#00001: Bug en el mensaje js del mercader.-
+#00003: Bug en el mensaje de los misiles interplanetarios que no llegan.-
+#00004: Bug en la actualización de producción, con lo cual la misma era duplicada (By Think).-
 ',
 
 '2.10.4' => ' 06/08/2012

@@ -4,7 +4,7 @@ $lang['Version']     = 'Versión';
 $lang['Description'] = 'Descripción';
 $lang['changelog']   = array(
 
-'2.10.5' => ' 26/05/2013
+'2.10.5' => ' 15/06/2013
 - [Bugs]
 #10337: Bug que no mostraba correctamente el tiempo de conexión en la alianza (By Think).-
 #10530: Agregado texto faltante "Campos" en el overview.- 
@@ -23,6 +23,7 @@ $lang['changelog']   = array(
 -- [Nueva numeración]
 #00001: Bug en el mensaje js del mercader.-
 #00003: Bug en el mensaje de los misiles interplanetarios que no llegan.-
+#00004: Bug en la actualización de producción, con lo cual la misma era duplicada (By Think).-
 ',
 
 '2.10.4' => ' 06/08/2012
