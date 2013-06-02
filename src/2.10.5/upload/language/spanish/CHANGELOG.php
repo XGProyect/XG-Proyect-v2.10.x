@@ -20,6 +20,9 @@ $lang['changelog']   = array(
 #10799: Bug en la protección de novatos. El jugador fuerte no era calculado correctamente (By Razican).-
 #10895: Bug en plugins.php causaba un Warning (By Razican).-
 #10908: Bug que permitía ver los acs de otros jugadores e incluso unirse a los mismos (By quaua).-
+-- [Nueva numeración]
+#00001: Bug en el mensaje js del mercader.-
+#00003: Bug en el mensaje de los misiles interplanetarios que no llegan.-
 ',
 
 '2.10.4' => ' 06/08/2012
