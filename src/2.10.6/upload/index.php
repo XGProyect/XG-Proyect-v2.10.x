@@ -17,7 +17,7 @@ include(XGP_ROOT . 'global.php');
 
 includeLang ( 'PUBLIC' );
 $parse = $lang;
-switch ( $_GET[page] )
+switch ( ( isset ( $_GET['page'] ) ) )
 {
 	case'lostpassword':
 		function sendnewpassword($mail)

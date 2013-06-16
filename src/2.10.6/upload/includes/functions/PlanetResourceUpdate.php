@@ -28,7 +28,7 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
         $BuildTemp    = $CurrentPlanet[ 'temp_max' ];
         $post_porcent =    Production::max_production ( $CurrentPlanet['energy_max'] , $CurrentPlanet['energy_used'] );
 
-        $EnergyLevel = $CurrentUser['energy_tech'];
+        $BuildEnergy = $CurrentUser['energy_tech'];
         
         //Data init: Set vars on zero so they don't start madly increasing.
         foreach($rList as $rname => $rdata) {

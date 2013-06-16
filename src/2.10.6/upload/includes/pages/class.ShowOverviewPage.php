@@ -35,8 +35,11 @@ class ShowOverviewPage
 		$parse['galaxy_galaxy'] 	= $CurrentPlanet['galaxy'];
 		$parse['galaxy_system'] 	= $CurrentPlanet['system'];
 		$parse['galaxy_planet'] 	= $CurrentPlanet['planet'];
-
-		switch($_GET['mode'])
+		$fpage						= array();
+		$flotten					= '';
+		$Have_new_message			= '';
+		
+		switch((isset($_GET['mode'])?$_GET['mode']:NULL))
 		{
 			case 'renameplanet':
 

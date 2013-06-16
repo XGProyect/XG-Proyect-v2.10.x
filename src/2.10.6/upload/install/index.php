@@ -14,8 +14,8 @@ include_once(XGP_ROOT . 'global.php');
 include_once('databaseinfos.php');
 include_once('migration.php');
 
-$Mode     = $_GET['mode'];
-$Page     = $_GET['page'];
+$Mode     = isset ( $_GET['mode'] ) ? $_GET['mode'] : NULL;
+$Page     = isset ( $_GET['page'] ) ? $_GET['page'] : NULL;
 $phpself  = $_SERVER['PHP_SELF'];
 $nextpage = $Page + 1;
 

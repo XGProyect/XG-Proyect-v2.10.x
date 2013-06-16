@@ -4,6 +4,15 @@ $lang['Version']     = 'Versión';
 $lang['Description'] = 'Descripción';
 $lang['changelog']   = array(
 
+'2.10.6' => ' xx/xx/2013
+- [Mejoras]
+- Varias mejoras de código, se removieron varios notices y warnings.-
+
+- [Bugs]
+#00000: Bug donde se mostraban las lunas destruidas en el selector de planetas.-
+#00000: Bug donde la energia no era tenida en cuenta en la actualización de recursos.-
+',
+
 '2.10.5' => ' 15/06/2013
 - [Bugs]
 #10337: Bug que no mostraba correctamente el tiempo de conexión en la alianza (By Think).-

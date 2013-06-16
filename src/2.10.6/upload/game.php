@@ -19,7 +19,7 @@ include(XGP_ROOT . 'includes/functions/SetNextQueueElementOnTop.php');
 include(XGP_ROOT . 'includes/functions/SortUserPlanets.php');
 include(XGP_ROOT . 'includes/functions/UpdatePlanetBatimentQueueList.php');
 
-switch($_GET[page])
+switch ( ( isset ( $_GET['page'] ) ? $_GET['page'] : NULL ) )
 {
 // ----------------------------------------------------------------------------------------------------------------------------------------------//
 	case'changelog':
@@ -165,7 +165,7 @@ switch($_GET[page])
 // ----------------------------------------------------------------------------------------------------------------------------------------------//
 	case'logout':
 		setcookie(read_config ( 'cookie_name' ), "", time()-100000, "/", "", 0);
-		message($lang['see_you_soon'], XGP_ROOT, 1, FALSE, FALSE);
+		message($lang['see_you_soon'], XGP_ROOT, 5, FALSE, FALSE);
 	break;
 // ----------------------------------------------------------------------------------------------------------------------------------------------//
 	default:
