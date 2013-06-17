@@ -181,8 +181,8 @@ function MakeStats()
 	//We will make query every 'stat_amount' users
 	//Min amount = 10, if it is less than 10, it is not a good system
 
+	$game_users_amount	=	total_users;
 	$game_stat_amount	=	read_config ( 'stat_amount' );
-	$game_users_amount	=	read_config ( 'users_amount' );
 	$game_stat_flying	=	read_config ( 'stat_flying' );
 	$game_stat_settings	=	read_config ( 'stat_settings' );
 	$game_stat_level	=	read_config ( 'stat_level' );
