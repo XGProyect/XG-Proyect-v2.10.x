@@ -221,8 +221,6 @@ if ($_POST)
 		$message 	= $lang['welcome_message_content'];
 		SendSimpleMessage($NewUser['id'], $sender, $Time, 1, $from, $Subject, $message);
 
-		update_config ( 'users_amount' , read_config ( 'users_amount' ) + 1 );
-
 		@include('config.php');
 		$cookie = $NewUser['id'] . "/%/" . $UserName . "/%/" . md5($md5newpass . "--" . $dbsettings["secretword"]) . "/%/" . 0;
 		setcookie(read_config ( 'cookie_name' ), $cookie, 0, "/", "", 0);
