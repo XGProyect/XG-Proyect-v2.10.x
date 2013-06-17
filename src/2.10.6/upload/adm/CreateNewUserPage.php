@@ -75,8 +75,6 @@ if ($_POST)
 		$Query1 .= "`password`='" . $pass . "';";
 		doquery($Query1, "users");
 
-		update_config ( 'users_amount' , read_config ( 'users_amount' ) + 1 );
-
 		$ID_USER 	= doquery("SELECT `id` FROM {{table}} WHERE `username` = '" . mysql_escape_string($name) . "' LIMIT 1", "users", TRUE);
 
 		CreateOnePlanetRecord ($galaxy, $system, $planet, $ID_USER['id'], $UserPlanet, TRUE);
