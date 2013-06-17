@@ -38,7 +38,7 @@ class ShowOverviewPage
 		$fpage						= array();
 		$flotten					= '';
 		$Have_new_message			= '';
-		
+
 		switch((isset($_GET['mode'])?$_GET['mode']:NULL))
 		{
 			case 'renameplanet':
@@ -315,7 +315,7 @@ class ShowOverviewPage
 						if($Colone <= 1)
 						{
 							$Colone++;
-						}	
+						}
 						else
 						{
 							$AllPlanets .= "</tr><tr>";
@@ -405,9 +405,9 @@ class ShowOverviewPage
 				$parse['anothers_planets'] = $AllPlanets;
 				$parse["dpath"] = DPATH;
 				if(read_config ( 'stat' ) == 0)
-					$parse['user_rank'] = Format::pretty_number($StatRecord['total_points']) . " (" . $lang['ov_place'] . " <a href=\"game.php?page=statistics&range=" . $StatRecord['total_rank'] . "\">" . $StatRecord['total_rank'] . "</a> " . $lang['ov_of'] . " " . read_config ( 'users_amount' ) . ")";
+					$parse['user_rank'] = Format::pretty_number($StatRecord['total_points']) . " (" . $lang['ov_place'] . " <a href=\"game.php?page=statistics&range=" . $StatRecord['total_rank'] . "\">" . $StatRecord['total_rank'] . "</a> " . $lang['ov_of'] . " " . $CurrentPlanet['total_users'] . ")";
 				elseif(read_config ( 'stat' ) == 1 && $CurrentUser['authlevel'] < read_config ( 'stat_level' ))
-					$parse['user_rank'] = Format::pretty_number($StatRecord['total_points']) . " (" . $lang['ov_place'] . " <a href=\"game.php?page=statistics&range=" . $StatRecord['total_rank'] . "\">" . $StatRecord['total_rank'] . "</a> " . $lang['ov_of'] . " " . read_config ( 'users_amount' ) . ")";
+					$parse['user_rank'] = Format::pretty_number($StatRecord['total_points']) . " (" . $lang['ov_place'] . " <a href=\"game.php?page=statistics&range=" . $StatRecord['total_rank'] . "\">" . $StatRecord['total_rank'] . "</a> " . $lang['ov_of'] . " " . $CurrentPlanet['total_users'] . ")";
 				else
 					$parse['user_rank'] = "-";
 
