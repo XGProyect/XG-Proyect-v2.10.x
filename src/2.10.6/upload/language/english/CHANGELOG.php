@@ -4,7 +4,7 @@ $lang['Version']     = 'Versi&oacute;n';
 $lang['Description'] = 'Descripci&oacute;n';
 $lang['changelog']   = array(
 
-'2.10.6' => ' xx/xx/2013
+'2.10.6' => ' 15/07/2013
 - [Mejoras]
 - Varias mejoras de código, se removieron varios notices y warnings.-
 
@@ -12,6 +12,7 @@ $lang['changelog']   = array(
 #00000: Bug donde se mostraban las lunas destruidas en el selector de planetas.-
 #00000: Bug donde la energia no era tenida en cuenta en la actualización de recursos.-
 #00000: Bug donde no se mostraba en otro color la alianza propia de un jugador dentro de las estadísticas.-
+#00000: Bug que no mostraba los puntos de la alianza al realizar una búsqueda por nombre/tag de alianza en las búsquedas.-
 #00022: Bug donde no se mostraba el texto respectivo en la cola de naves y defensas.-
 #00025: Bug donde no mostraba correctamente la cantidad de usuarios reales que tenía el juego en el overview.-
 ',
