@@ -20,6 +20,7 @@ $lang['changelog']   = array(
 #00000: Bug en las estadísticas que no reconocía correctamente cuando un usuario estaba baneado o no.-
 #00022: Bug donde no se mostraba el texto respectivo en la cola de naves y defensas.-
 #00025: Bug donde no mostraba correctamente la cantidad de usuarios reales que tenía el juego en el overview.-
+#00027: Bug en el reporte de combate que mostraba más rondas de las que realmente eran.-
 #00029: Reemplazadas las funciones mysql_escape_string y mysql_real_escape string por mysql_escape_value (función propia comunidad PHP).-
 ',
 
