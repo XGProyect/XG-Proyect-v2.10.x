@@ -124,7 +124,7 @@ if ($_POST)
 		$QryInsertUser .= "`email` = '" . mysql_escape_value($UserEmail) . "', ";
 		$QryInsertUser .= "`email_2` = '" . mysql_escape_value($UserEmail) . "', ";
 		$QryInsertUser .= "`ip_at_reg` = '" . $_SERVER["REMOTE_ADDR"] . "', ";
-		$QryInsertAdm  .= "`user_agent` = '', ";
+		$QryInsertUser  .= "`user_agent` = '', ";
 		$QryInsertUser .= "`id_planet` = '0', ";
 		$QryInsertUser .= "`register_time` = '" . time() . "', ";
 
@@ -192,7 +192,7 @@ if ($_POST)
 
 			if (!$GalaxyRow)
 			{
-				CreateOnePlanetRecord ($Galaxy, $System, $Planet, $NewUser['id'], $UserPlanet, TRUE);
+				CreateOnePlanetRecord ($Galaxy, $System, $Planet, $NewUser['id'], '', TRUE);
 				$newpos_checked = TRUE;
 			}
 			if ($newpos_checked)
@@ -219,7 +219,7 @@ if ($_POST)
 		$sender 	= $lang['welcome_message_sender'];
 		$Subject 	= $lang['welcome_message_subject'];
 		$message 	= $lang['welcome_message_content'];
-		SendSimpleMessage($NewUser['id'], $sender, $Time, 1, $from, $Subject, $message);
+		SendSimpleMessage($NewUser['id'], $sender, '', 1, $from, $Subject, $message);
 
 		@include('config.php');
 		$cookie = $NewUser['id'] . "/%/" . $UserName . "/%/" . md5($md5newpass . "--" . $dbsettings["secretword"]) . "/%/" . 0;

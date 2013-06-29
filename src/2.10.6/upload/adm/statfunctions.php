@@ -138,7 +138,7 @@ function MakeStats()
 
 		while($delete = mysql_fetch_array($ChooseToDelete))
 		{
-			DeleteSelectedUser($delete[id]);
+			DeleteSelectedUser($delete['id']);
 		}
 	}
 
@@ -264,11 +264,11 @@ function MakeStats()
 		//Here we start the update...
 		while ($CurUser = mysql_fetch_assoc($total_data))
 		{
-			$u_OldTotalRank = (($old_stats_array[$CurUser['id']]['old_total_rank'])? $old_stats_array[$CurUser['id']]['old_total_rank']:0);
-			$u_OldTechRank  = (($old_stats_array[$CurUser['id']]['old_tech_rank'])? $old_stats_array[$CurUser['id']]['old_tech_rank']:0);
-			$u_OldBuildRank = (($old_stats_array[$CurUser['id']]['old_build_rank'])? $old_stats_array[$CurUser['id']]['old_build_rank']:0);
-			$u_OldDefsRank  = (($old_stats_array[$CurUser['id']]['old_defs_rank'])? $old_stats_array[$CurUser['id']]['old_defs_rank']:0);
-			$u_OldFleetRank = (($old_stats_array[$CurUser['id']]['old_fleet_rank'])? $old_stats_array[$CurUser['id']]['old_fleet_rank']:0);
+			$u_OldTotalRank = ((isset($old_stats_array[$CurUser['id']]['old_total_rank']))? $old_stats_array[$CurUser['id']]['old_total_rank']:0);
+			$u_OldTechRank  = ((isset($old_stats_array[$CurUser['id']]['old_tech_rank']))? $old_stats_array[$CurUser['id']]['old_tech_rank']:0);
+			$u_OldBuildRank = ((isset($old_stats_array[$CurUser['id']]['old_build_rank']))? $old_stats_array[$CurUser['id']]['old_build_rank']:0);
+			$u_OldDefsRank  = ((isset($old_stats_array[$CurUser['id']]['old_defs_rank']))? $old_stats_array[$CurUser['id']]['old_defs_rank']:0);
+			$u_OldFleetRank = ((isset($old_stats_array[$CurUser['id']]['old_fleet_rank']))? $old_stats_array[$CurUser['id']]['old_fleet_rank']:0);
 			//We dont need this anymore...
 			unset($old_stats_array[$CurUser['id']]);
 			//1 point=  'stat_settings' ressources

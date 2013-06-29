@@ -46,11 +46,12 @@ class ShowShipyardPage
 	{
 		global $lang, $pricelist;
 
-		$ElementQueue = explode(';', $CurrentPlanet['b_hangar_id']);
-		$NbrePerType  = "";
-		$NamePerType  = "";
-		$TimePerType  = "";
-
+		$ElementQueue 	= explode(';', $CurrentPlanet['b_hangar_id']);
+		$NbrePerType  	= "";
+		$NamePerType  	= "";
+		$TimePerType  	= "";
+		$QueueTime		= 0;
+		
 		foreach($ElementQueue as $ElementLine => $Element)
 		{
 			if ($Element != '')
@@ -70,9 +71,8 @@ class ShowShipyardPage
 		$parse['c'] 					= $TimePerType;
 		$parse['b_hangar_id_plus'] 		= $CurrentPlanet['b_hangar'];
 		$parse['pretty_time_b_hangar'] 	= Format::pretty_time($QueueTime - $CurrentPlanet['b_hangar']);
-		$text .= parsetemplate(gettemplate('buildings/buildings_script'), $parse);
 
-		return $text;
+		return parsetemplate(gettemplate('buildings/buildings_script'), $parse);
 	}
 
 	public function FleetBuildingPage ( &$CurrentPlanet, $CurrentUser )

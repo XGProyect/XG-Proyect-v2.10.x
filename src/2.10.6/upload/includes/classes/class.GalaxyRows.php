@@ -409,12 +409,12 @@ class GalaxyRows
 			$parse['planet']	= $Planet;
 			$parse['image']		= $GalaxyInfo["image"];
 			$parse['links'] 	= $MissionType6Link;
-			$parse['links']    	= $PhalanxTypeLink;
-			$parse['links']    	= $MissionType1Link;
-			$parse['links']    	= $MissionType5Link;
-			$parse['links']    	= $MissionType4Link;
-			$parse['links']    	= $MissionType3Link;
-			$parse['links']    	= $MissionType10Link;
+			$parse['links']    .= $PhalanxTypeLink;
+			$parse['links']    .= $MissionType1Link;
+			$parse['links']    .= $MissionType5Link;
+			$parse['links']    .= $MissionType4Link;
+			$parse['links']    .= $MissionType3Link;
+			$parse['links']    .= $MissionType10Link;
 
 		}
 		return parsetemplate(gettemplate('galaxy/galaxy_planet_block'), $parse);
