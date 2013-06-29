@@ -6,7 +6,7 @@
  * @copyright Copyright (C) 2008 - 2012
  */
 
-if (!defined('INSIDE')){die();}
+if(!defined('INSIDE')){ die(header("location:../../"));}
 
 function phpself()
 {
@@ -122,7 +122,7 @@ while (($file = readdir($dir)) !== FALSE)
 	{
 		include $plugins_path . $file;
 	}
-	 elseif (is_dir($plugins_path.$file) && file_exists($plugins_path.$file.'/'.$file.'.php')) 
+	 elseif (is_dir($plugins_path.$file) && file_exists($plugins_path.$file.'/'.$file.'.php'))
 	{ // by the way, we check if the plugin is inside of a folder
 		include $plugins_path.$file.'/'.$file.'.php';
 	}
@@ -138,9 +138,8 @@ closedir($dir);
 if ( defined('IN_ADMIN') )
 {
 	$lang['mu_settings'] 	.= '</a></th></tr><tr><th ".$onMouseOverIE." class="ForIE"><a href="SettingsPage.php?modo=plugins" target="Hauptframe">Config. plugins';
-	define('DPATH' , "../". DEFAULT_SKINPATH );
-	//DPATH     				= "../". DEFAULT_SKINPATH  ;
-	$page   				=   $_GET['modo'];
+	if(!defined('DPATH')){define('DPATH' , "../". DEFAULT_SKINPATH );}
+	$page					= isset ( $_GET['modo'] ) ? $_GET['modo'] : NULL;
 
 	if(is_phpself('adm/SettingsPage') && $page=='plugins')
 	{

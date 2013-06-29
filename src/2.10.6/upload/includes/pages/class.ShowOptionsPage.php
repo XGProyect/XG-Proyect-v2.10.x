@@ -91,21 +91,21 @@ class ShowOptionsPage
 			// < ------------------------------------------------- NOMBRE DE USUARIO --------------------------------------------------- >
 			if (isset($_POST["db_character"]) && $_POST["db_character"] != '')
 			{
-				$username = mysql_escape_string ( $_POST['db_character'] );
+				$username = mysql_escape_value ( $_POST['db_character'] );
 			}
 			else
 			{
-				$username = mysql_escape_string ( $CurrentUser['username'] );
+				$username = mysql_escape_value ( $CurrentUser['username'] );
 			}
 			// < ------------------------------------------------- DIRECCION DE EMAIL -------------------------------------------------- >
 
 			if (isset($_POST["db_email"]) && $_POST["db_email"] != '')
 			{
-				$db_email = mysql_escape_string ( $_POST['db_email'] );
+				$db_email = mysql_escape_value ( $_POST['db_email'] );
 			}
 			else
 			{
-				$db_email = mysql_escape_string ( $CurrentUser['email'] );
+				$db_email = mysql_escape_value ( $CurrentUser['email'] );
 			}
 			// < ------------------------------------------------- CANTIDAD DE SONDAS -------------------------------------------------- >
 			if (isset($_POST["spio_anz"]) && is_numeric($_POST["spio_anz"]))
@@ -227,8 +227,8 @@ class ShowOptionsPage
 				$db_deaktjava = "0";
 			}
 
-			$SetSort  = mysql_escape_string($_POST['settings_sort']);
-			$SetOrder = mysql_escape_string($_POST['settings_order']);
+			$SetSort  = mysql_escape_value($_POST['settings_sort']);
+			$SetOrder = mysql_escape_value($_POST['settings_order']);
 			//// < -------------------------------------- ACTUALIZAR TODO LO SETEADO ANTES --------------------------------------------- >
 			doquery("UPDATE {{table}} SET
 			`email` = '$db_email',
@@ -266,11 +266,11 @@ class ShowOptionsPage
 			// < --------------------------------------------- CAMBIO DE NOMBRE DE USUARIO --------------------------------------------- >
 			if ($CurrentUser['username'] != $_POST["db_character"])
 			{
-				$query = doquery("SELECT id FROM {{table}} WHERE username='".mysql_escape_string ($_POST["db_character"])."'", 'users', TRUE);
+				$query = doquery("SELECT id FROM {{table}} WHERE username='".mysql_escape_value ($_POST["db_character"])."'", 'users', TRUE);
 
 				if (!$query)
 				{
-					doquery("UPDATE {{table}} SET username='".mysql_escape_string ($username)."' WHERE id='".intval($CurrentUser['id'])."' LIMIT 1", "users");
+					doquery("UPDATE {{table}} SET username='".mysql_escape_value ($username)."' WHERE id='".intval($CurrentUser['id'])."' LIMIT 1", "users");
 					setcookie(COOKIE_NAME, "", time()-100000, "/", "", 0);
 					message($lang['op_username_changed'], "index.php", 1);
 				}

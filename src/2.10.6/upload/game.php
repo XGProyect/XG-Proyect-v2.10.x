@@ -72,14 +72,12 @@ switch ( ( isset ( $_GET['page'] ) ? $_GET['page'] : NULL ) )
 	break;
 // ----------------------------------------------------------------------------------------------------------------------------------------------//
 	case'buildings':
-		include_once(XGP_ROOT . 'includes/functions/HandleTechnologieBuild.php');
 		UpdatePlanetBatimentQueueList ($planetrow, $user);
-		$IsWorking = HandleTechnologieBuild($planetrow, $user);
-		switch ($_GET['mode'])
+		switch ( ( isset ( $_GET['mode'] ) ? $_GET['mode'] : NULL ) )
 		{
 			case 'research':
 				include_once(XGP_ROOT . 'includes/pages/class.ShowResearchPage.php');
-				new ShowResearchPage($planetrow, $user, $IsWorking['OnWork'], $IsWorking['WorkOn']);
+				new ShowResearchPage($planetrow, $user);
 			break;
 			case 'fleet':
 				include_once(XGP_ROOT . 'includes/pages/class.ShowShipyardPage.php');

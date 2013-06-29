@@ -212,7 +212,7 @@ switch ($Mode)
 			$administrator	=	doquery("SELECT id
 											FROM {{table}}
 											WHERE password = '" . md5 ( $_POST['adm_pass'] ) . "' AND
-													email = '" . mysql_escape_string ( $_POST['adm_email'] ) . "' AND
+													email = '" . mysql_escape_value ( $_POST['adm_email'] ) . "' AND
 													authlevel = 3" , 'users' , TRUE );
 
 			if ( !$administrator )

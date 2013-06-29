@@ -56,7 +56,7 @@ function GetDefensePoints ( $CurrentPlanet ) {
 	$DefenseCounts = 0;
 	$DefensePoints = 0;
 	foreach($reslist['defense'] as $n => $Defense) {
-		if ($CurrentPlanet[ $resource[ $Defense ] ] > 0) {
+		if (isset($CurrentPlanet[$resource[$Defense]]) && $CurrentPlanet[$resource[$Defense]] > 0) {
 			$Units          = $pricelist[ $Defense ]['metal'] + $pricelist[ $Defense ]['crystal'] + $pricelist[ $Defense ]['deuterium'];
 			$DefensePoints += ($Units * $CurrentPlanet[ $resource[ $Defense ] ]);
 			$DefenseCounts += $CurrentPlanet[ $resource[ $Defense ] ];
@@ -175,7 +175,7 @@ function MakeStats()
 	//For Stats table..
 	$select_old_ranks	= "id_owner, stat_type,tech_rank AS old_tech_rank, build_rank AS old_build_rank, defs_rank AS old_defs_rank, fleet_rank AS old_fleet_rank, total_rank AS old_total_rank";
 	//For users table
-	$select_user		= " u.id, u.ally_id, u.authlevel ";
+	$select_user		= " u.id, u.ally_id, u.authlevel, u.bana ";
 	//We check how many users are for not overload the server...
 	$total_users = doquery("SELECT COUNT(*) AS `count` FROM {{table}} WHERE 1;", 'users', TRUE);
 	//We will make query every 'stat_amount' users
@@ -187,6 +187,7 @@ function MakeStats()
 	$game_stat_settings	=	read_config ( 'stat_settings' );
 	$game_stat_level	=	read_config ( 'stat_level' );
 	$game_stat			=	read_config ( 'stat' );
+	$flying_fleets_array=	array ();
 
 	$game_stat_amount	= (($game_stat_amount>=10)?$game_stat_amount:10);
 	$amount_per_block	= (($game_stat_amount<$game_users_amount)?$game_users_amount:$game_stat_amount);
@@ -287,7 +288,7 @@ function MakeStats()
 			//This is used if($game_stat_flying == 1)
 			if($game_stat_flying == 1)
 			{
-				if($flying_fleets_array[$CurUser['id']])
+				if(isset($flying_fleets_array[$CurUser['id']]))
 				{
 					foreach($flying_fleets_array[$CurUser['id']] as $fleet_id => $fleet_array)
 					{

@@ -16,7 +16,7 @@ class ShowMessagesPage
 
 		$OwnerID		= intval ( (isset($_GET['id'])?$_GET['id']:NULL) );
 		$MessCategory  	= intval ( (isset($_GET['messcat'])?$_GET['messcat']:NULL) );
-		$MessPageMode  	= addslashes ( mysql_escape_string ( (isset($_GET['mode'])?$_GET['mode']:NULL) ) );
+		$MessPageMode  	= addslashes ( mysql_escape_value ( (isset($_GET['mode'])?$_GET['mode']:NULL) ) );
 		$DeleteWhat    	= isset($_POST['deletemessages'])?$_POST['deletemessages']:NULL;
 
 		if ( isset ( $DeleteWhat ) )

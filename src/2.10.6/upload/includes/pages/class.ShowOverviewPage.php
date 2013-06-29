@@ -45,7 +45,7 @@ class ShowOverviewPage
 
 				if($_POST['action'] == $lang['ov_planet_rename_action'])
 				{
-					$newname = mysql_escape_string(strip_tags(trim($_POST['newname'])));
+					$newname = mysql_escape_value(strip_tags(trim($_POST['newname'])));
 
 					if(preg_match("/[^A-z0-9_\- ]/",$newname) == 1)
 					{

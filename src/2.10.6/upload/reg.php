@@ -94,14 +94,14 @@ if ($_POST)
 		$errors++;
 	}
 
-	$ExistUser = doquery("SELECT `username` FROM {{table}} WHERE `username` = '" . mysql_escape_string($_POST['character']) . "' LIMIT 1;", 'users', TRUE);
+	$ExistUser = doquery("SELECT `username` FROM {{table}} WHERE `username` = '" . mysql_escape_value($_POST['character']) . "' LIMIT 1;", 'users', TRUE);
 	if ($ExistUser)
 	{
 		$errorlist .= $lang['user_already_exists'];
 		$errors++;
 	}
 
-	$ExistMail = doquery("SELECT `email` FROM {{table}} WHERE `email` = '" . mysql_escape_string($_POST['email']) . "' LIMIT 1;", 'users', TRUE);
+	$ExistMail = doquery("SELECT `email` FROM {{table}} WHERE `email` = '" . mysql_escape_value($_POST['email']) . "' LIMIT 1;", 'users', TRUE);
 	if ($ExistMail)
 	{
 		$errorlist .= $lang['mail_already_exists'];
@@ -120,9 +120,9 @@ if ($_POST)
 		$md5newpass = md5($newpass);
 
 		$QryInsertUser = "INSERT INTO {{table}} SET ";
-		$QryInsertUser .= "`username` = '" . mysql_escape_string(strip_tags($UserName)) . "', ";
-		$QryInsertUser .= "`email` = '" . mysql_escape_string($UserEmail) . "', ";
-		$QryInsertUser .= "`email_2` = '" . mysql_escape_string($UserEmail) . "', ";
+		$QryInsertUser .= "`username` = '" . mysql_escape_value(strip_tags($UserName)) . "', ";
+		$QryInsertUser .= "`email` = '" . mysql_escape_value($UserEmail) . "', ";
+		$QryInsertUser .= "`email_2` = '" . mysql_escape_value($UserEmail) . "', ";
 		$QryInsertUser .= "`ip_at_reg` = '" . $_SERVER["REMOTE_ADDR"] . "', ";
 		$QryInsertAdm  .= "`user_agent` = '', ";
 		$QryInsertUser .= "`id_planet` = '0', ";
@@ -131,7 +131,7 @@ if ($_POST)
 		$QryInsertUser .= "`password`='" . $md5newpass . "';";
 		doquery($QryInsertUser, 'users');
 
-		$NewUser = doquery("SELECT `id` FROM {{table}} WHERE `username` = '" . mysql_escape_string($_POST['character']) . "' LIMIT 1;", 'users', TRUE);
+		$NewUser = doquery("SELECT `id` FROM {{table}} WHERE `username` = '" . mysql_escape_value($_POST['character']) . "' LIMIT 1;", 'users', TRUE);
 
 		$LastSettedGalaxyPos = read_config ( 'lastsettedgalaxypos' );
 		$LastSettedSystemPos = read_config ( 'lastsettedsystempos' );

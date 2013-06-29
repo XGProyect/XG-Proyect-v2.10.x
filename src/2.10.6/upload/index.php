@@ -70,7 +70,7 @@ switch ( ( isset ( $_GET['page'] ) ) )
 	default:
 		if ($_POST)
 		{
-			$login = doquery("SELECT `id`,`username`,`password`,`banaday` FROM {{table}} WHERE `username` = '" . mysql_escape_string($_POST['username']) . "' AND `password` = '" . md5($_POST['password']) . "' LIMIT 1", "users", TRUE);
+			$login = doquery("SELECT `id`,`username`,`password`,`banaday` FROM {{table}} WHERE `username` = '" . mysql_escape_value($_POST['username']) . "' AND `password` = '" . md5($_POST['password']) . "' LIMIT 1", "users", TRUE);
 
 			if($login['banaday'] <= time() && $login['banaday'] != '0')
 			{
