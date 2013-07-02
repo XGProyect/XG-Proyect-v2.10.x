@@ -14,15 +14,15 @@
 	</config>
 	<config>
 		<name>game_speed</name>
-		<value>2500000</value>
+		<value>2500</value>
 	</config>
 	<config>
 		<name>fleet_speed</name>
-		<value>2500000</value>
+		<value>2500</value>
 	</config>
 	<config>
 		<name>resource_multiplier</name>
-		<value>1000</value>
+		<value>1</value>
 	</config>
 	<config>
 		<name>fleet_cdr</name>
