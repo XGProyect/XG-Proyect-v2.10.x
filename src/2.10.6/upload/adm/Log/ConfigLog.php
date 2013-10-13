@@ -1,7 +1,7 @@
 
 El usuario lucky ha cambiado los parametros de estadisticas:
 Tiempo entre actualizaci&oacute;n de estad&iacute;sticas (minutos): 1
-Operaci&oacute;n realizada el: 29-06-2013 13:00:58
+Operaci&oacute;n realizada el: 13-10-2013 00:41:36
 proyect.net/
 Velocidad del juego : x1000
 Velocidad de flota : x1000

@@ -8,8 +8,8 @@
 
 // SETEADO PARA EVITAR ERRORRES EN VERSION DE PHP MAYORES A 5.3.0
 //error_reporting ( E_ALL & ~E_NOTICE );
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
 
 $user          	= array();
 $lang          	= array();
