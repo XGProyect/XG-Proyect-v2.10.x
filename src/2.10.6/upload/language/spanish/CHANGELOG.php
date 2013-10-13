@@ -4,7 +4,7 @@ $lang['Version']     = 'Versión';
 $lang['Description'] = 'Descripción';
 $lang['changelog']   = array(
 
-'2.10.6' => ' 13/07/2013
+'2.10.6' => ' 12/10/2013
 - [Mejoras]
 - Varias mejoras de código, se removieron varios notices y warnings.-
 - Removido HandleTechnologieBuild.php, se movio como un metodo a la clase class.ShowResearchPage.php.-
