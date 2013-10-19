@@ -4,6 +4,13 @@ $lang['Version']     = 'Versión';
 $lang['Description'] = 'Descripción';
 $lang['changelog']   = array(
 
+'2.10.7' => ' 12/10/2013
+- [Mejoras]
+
+- [Bugs]
+#00000: Bug en el actualizar donde no cargaba correctamente la versión actual del sistema.-
+',
+
 '2.10.6' => ' 12/10/2013
 - [Mejoras]
 - Varias mejoras de código, se removieron varios notices y warnings.-
