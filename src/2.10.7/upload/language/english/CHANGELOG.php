@@ -12,6 +12,7 @@ $lang['changelog']   = array(
 #00000: Bug en el actualizar donde no cargaba correctamente la versión actual del sistema.-
 #00000: Bug que no mostraba el nombre de confirmación al borrar a un usuario de una alianza.-
 #00028: Al intercambiar 0 recursos con el mercader te consume materia oscura.-
+#00034: Problemas en la producción.-
 #00037: Bug donde no se cargaban correctamente los SACs (By JonaMiX).-
 #00042: Bug al guardar un reporte de combate (By jstar).-
 #00043: Bug al crear una luna después de un combate (By alivan).-
