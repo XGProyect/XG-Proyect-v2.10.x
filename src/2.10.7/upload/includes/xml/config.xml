@@ -14,15 +14,15 @@
 	</config>
 	<config>
 		<name>game_speed</name>
-		<value>2500</value>
+		<value>25000000</value>
 	</config>
 	<config>
 		<name>fleet_speed</name>
-		<value>2500</value>
+		<value>25000000</value>
 	</config>
 	<config>
 		<name>resource_multiplier</name>
-		<value>1</value>
+		<value>10000</value>
 	</config>
 	<config>
 		<name>fleet_cdr</name>
@@ -78,7 +78,7 @@
 	</config>
 	<config>
 		<name>lastsettedplanetpos</name>
-		<value>1</value>
+		<value>2</value>
 	</config>
 	<config>
 		<name>noobprotection</name>
@@ -118,7 +118,7 @@
 	</config>
 	<config>
 		<name>stat_last_update</name>
-		<value>1382196594</value>
+		<value>1384902158</value>
 	</config>
 	<config>
 		<name>stat_settings</name>
