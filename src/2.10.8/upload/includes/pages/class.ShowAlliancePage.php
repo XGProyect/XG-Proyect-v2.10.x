@@ -86,7 +86,7 @@ class ShowAlliancePage extends bbCode
 		$d 			= ( isset ( $_GET['d'] ) ? $_GET['d'] : NULL ); // ELIMINAR RANGO
 		$edit 		= ( isset ( $_GET['edit'] ) ? $_GET['edit'] : NULL ); // EDITAR
 		$rank 		= intval ( ( isset ( $_GET['rank'] ) ? $_GET['rank'] : NULL ) ); // ADMIN -> RANGOS -> MIEMBROS
-		$kick 		= intval ( ( isset ( $_GET['kick'] ) ? $_GET['kick'] : NULL ) ); // ADMIN -> EXPULSAR -> MIEMBROS
+		$kick 		= intval ( ( isset ( $_GET['kick'] ) ? $_GET['kick'] : FALSE ) ); // ADMIN -> EXPULSAR -> MIEMBROS
 		$id 		= intval ( ( isset ( $_GET['id'] ) ? $_GET['id'] : NULL ) ); // ID DE LA ALIANZA
 		$yes      	= ( isset ( $_GET['yes'] ) ? $_GET['yes'] : NULL ); //CONFIRMACION
 		$allyid   	= intval ( ( isset ( $_GET['allyid'] ) ? $_GET['allyid'] : NULL ) ); // ID DE LA ALIANZA
@@ -857,7 +857,7 @@ class ShowAlliancePage extends bbCode
 					header ( "location:game.php?page=alliance" , 2 );
 				}
 
-				if ( isset ( $kick ) )
+				if ( isset ( $kick ) && $kick != 0 )
 				{
 					if ($ally['ally_owner'] != $CurrentUser['id'] && !$user_can_kick)
 					{
@@ -873,7 +873,7 @@ class ShowAlliancePage extends bbCode
 				}
 				elseif ( isset ( $_POST['newrang'] ) )
 				{
-					$q	= doquery ( "SELECT * FROM {{table}} WHERE id='" . intval ( $u ) . "' LIMIT 1" , 'users' , TRUE );
+					$q	= doquery ( "SELECT * FROM {{table}} WHERE id='" . intval ( $id ) . "' LIMIT 1" , 'users' , TRUE );
 
 					if ( ( isset ( $ally_ranks[$_POST['newrang']-1] ) or $_POST['newrang'] == 0 ) && $q['id'] != $ally['ally_owner'] )
 					{
@@ -899,7 +899,7 @@ class ShowAlliancePage extends bbCode
 				$lang['i'] 		= mysql_num_rows($listuser);
 				$page_list		= '';
 				$r['options']	= '';
-				
+
 				while ( $u = mysql_fetch_array ( $listuser ) )
 				{
 					$UserPoints			= doquery ( "SELECT * FROM {{table}} WHERE `stat_type` = '1' AND `stat_code` = '1' AND `id_owner` = '" . intval ( $u['id'] ) . "';" , 'statpoints' , TRUE );
@@ -928,7 +928,7 @@ class ShowAlliancePage extends bbCode
 					{
 						$u["acciones"] 	= '-';
 					}
-					elseif ( $ally_ranks[$CurrentUser['ally_rank_id']-1]['kick'] == 1  &&  $ally_ranks[$CurrentUser['ally_rank_id']-1]['administrieren'] == 1 or $ally['ally_owner'] == $CurrentUser['id'] )
+					elseif ( isset($ally_ranks[$CurrentUser['ally_rank_id']-1]['kick']) && $ally_ranks[$CurrentUser['ally_rank_id']-1]['kick'] == 1  &&  isset($ally_ranks[$CurrentUser['ally_rank_id']-1]['administrieren']) && $ally_ranks[$CurrentUser['ally_rank_id']-1]['administrieren'] == 1 or $ally['ally_owner'] == $CurrentUser['id'] )
 					{
 						$u["acciones"] 	= "<a href=\"game.php?page=alliance&mode=admin&edit=members&kick=" . $u['id'] . "\" onclick=\"javascript:return confirm('Estas seguro que deseas expulsar a " . $u['username'] . "?');\"><img src=\"".DPATH."pic/abort.gif\" border=\"0\"></a> <a href=\"game.php?page=alliance&mode=admin&edit=members&rank=" . $u['id'] . "\"><img src=\"" . DPATH . "pic/key.gif\" border=\"0\"></a>";
 					}

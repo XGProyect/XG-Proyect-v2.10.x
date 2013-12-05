@@ -35,11 +35,11 @@ switch ($Mode)
 	break;
 	case 'ins':
 		if ($Page == 1) {
-			if ($_GET['error'] == 1)
+			if (isset($_GET['error']) && $_GET['error'] == 1)
 			{
 				message ("La conexi&oacute;n a la base de datos a fallado","?mode=ins&page=1", 3, FALSE, FALSE);
 			}
-			elseif ($_GET['error'] == 2)
+			elseif (isset($_GET['error']) && $_GET['error'] == 2)
 			{
 				message ("El fichero config.php no puede ser sustituido, no tenia acceso chmod 777","?mode=ins&page=1", 3, FALSE, FALSE);
 			}
@@ -76,7 +76,7 @@ switch ($Mode)
 				exit();
 			}
 
-			$parse[first]	= "Conexi&oacute;n establecida con éxito...";
+			$parse['first']	= "Conexi&oacute;n establecida con éxito...";
 
 			fwrite($dz, "<?php\n");
 			fwrite($dz, "if(!defined(\"INSIDE\")){ header(\"location:".XGP_ROOT."\"); }\n");
@@ -90,7 +90,7 @@ switch ($Mode)
 			fwrite($dz, "?>");
 			fclose($dz);
 
-			$parse[second]	= "Archivo config.php creado con éxito...";
+			$parse['second']	= "Archivo config.php creado con éxito...";
 
 			doquery ($QryTableAks        , 'aks'    	);
 			doquery ($QryTableAlliance   , 'alliance'   );
@@ -107,13 +107,13 @@ switch ($Mode)
 			doquery ($QryTableStatPoints , 'statpoints'	);
 			doquery ($QryTableUsers      , 'users'  	);
 
-			$parse[third]	= "Tablas creadas con &eaute;xito...";
+			$parse['third']	= "Tablas creadas con &eaute;xito...";
 
 			$frame  = parsetemplate(gettemplate('install/ins_form_done'), $parse);
 		}
 		elseif ($Page == 3)
 		{
-			if ($_GET['error'] == 3)
+			if (isset($_GET['error']) && $_GET['error'] == 3)
 				message ("&iexcl;Debes completar todos los campos!","?mode=ins&page=3", 2, FALSE, FALSE);
 
 			$frame  = parsetemplate(gettemplate('install/ins_acc'), FALSE);
@@ -190,7 +190,7 @@ switch ($Mode)
 
 			update_config ( 'stat_last_update' , time() );
 
-			$frame  = parsetemplate(gettemplate('install/ins_acc_done'), $parse);
+			$frame  = parsetemplate(gettemplate('install/ins_acc_done'), '');
 		}
 		break;
 	case'upgrade':
