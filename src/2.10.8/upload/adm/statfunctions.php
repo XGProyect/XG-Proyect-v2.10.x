@@ -90,7 +90,10 @@ function GetFlyingFleetPoints($fleet_array)
 {global $resource, $pricelist, $reslist;
 	// PADA FUNCTION
 	// USE AT YOUR OWN RISK :3
-	$FleetRec     = explode(";", $fleet_array);
+	$FleetRec     	= explode(";", $fleet_array);
+	$FleetPoints	= 0;
+	$FleetCounts	= 0;
+	
 	if(is_array($FleetRec))
 	{
 		foreach($FleetRec as $Item => $Group)

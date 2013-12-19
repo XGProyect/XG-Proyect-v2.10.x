@@ -54,7 +54,7 @@ class bbCode
 		    '$this->sizefix(\'\\1\',\'\\2\')'
 		);
 
-		return preg_replace($pattern, $replace, nl2br(htmlspecialchars(stripslashes($string))));
+		return preg_replace($pattern, $replace, nl2br(stripslashes($string)));
 	}
 
 	private function sCode($string)

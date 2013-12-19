@@ -53,7 +53,7 @@ class ShowResourcesPage
 			{
 				$BuildLevelFactor	= $CurrentPlanet[ $resource[$ProdID]."_porcent" ];
 				$BuildLevel			= $CurrentPlanet[ $resource[$ProdID] ];
-				$EnergyLevel        = $CurrentUser["energy_tech"];
+				$BuildEnergy        = $CurrentUser["energy_tech"];
 
 				// BOOST
 				$geologe_boost		= 1 + ( $CurrentUser['rpg_geologue']  * GEOLOGUE );

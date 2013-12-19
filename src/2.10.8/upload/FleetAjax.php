@@ -22,10 +22,13 @@ $speedalls      = array();
 $PartialFleet   = FALSE;
 $PartialCount   = 0;
 
+$fleet['fleetlist']	= '';
+$fleet['amount'] 	= 0;
+
 foreach ($reslist['fleet'] as $Node => $ShipID)
 {
 	$TName = "ship".$ShipID;
-	if ($ShipID > 200 && $ShipID < 300 && $_POST[$TName] > 0)
+	if (isset($_POST[$TName]) && $ShipID > 200 && $ShipID < 300 && $_POST[$TName] > 0)
 	{
 		if ($_POST[$TName] > $planetrow[$resource[$ShipID]])
 		{

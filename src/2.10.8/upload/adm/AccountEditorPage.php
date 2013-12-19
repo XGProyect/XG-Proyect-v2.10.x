@@ -17,16 +17,16 @@ if ($EditUsers != 1) die(message ($lang['404_page']));
 
 $parse = $lang;
 
-switch($_GET[page])
+switch((isset($_GET['page'])?$_GET['page']:''))
 {
 	case'resources':
 
-		$id         = $_POST['id'];
-		$id_dark    = $_POST['id_dark'];
-		$metal      = $_POST['metal'];
-		$cristal    = $_POST['cristal'];
-		$deut       = $_POST['deut'];
-		$dark		= $_POST['dark'];
+		$id         = isset ( $_POST['id'] ) ? $_POST['id'] : '';
+		$id_dark    = isset ( $_POST['id_dark'] ) ? $_POST['id_dark'] : '';
+		$metal      = isset ( $_POST['metal'] ) ? $_POST['metal'] : '';
+		$cristal    = isset ( $_POST['cristal'] ) ? $_POST['cristal'] : '';
+		$deut       = isset ( $_POST['deut'] ) ? $_POST['deut'] : '';
+		$dark		= isset ( $_POST['dark'] ) ? $_POST['dark'] : '';
 
 		if ($_POST){
 		if(is_numeric($id) && is_numeric($metal) && is_numeric($cristal) && is_numeric($deut) && is_numeric($dark) && is_numeric($id_dark))
@@ -78,7 +78,7 @@ switch($_GET[page])
 
 			if ($_POST['add'] || $_POST['delete'])
 			{
-				$Log	.=	"\n".$lang['log_the_user'].$user['username']." ".$Name.":\n";
+				$Log	 =	"\n".$lang['log_the_user'].$user['username']." ".$Name.":\n";
 				$Log	.=	$lang['metal'].": ".$metal."\n";
 				$Log	.=	$lang['crystal'].": ".$cristal."\n";
 				$Log	.=	$lang['deuterium'].": ".$deut."\n";
@@ -175,7 +175,7 @@ switch($_GET[page])
 
 				if ($_POST['add'] || $_POST['delete'])
 				{
-					$Log	.=	"\n".$lang['log_the_user'].$user['username']." ".$Name.":\n";
+					$Log	 =	"\n".$lang['log_the_user'].$user['username']." ".$Name.":\n";
 					$Log	.=	$lang['small_ship_cargo'].": ".$small_ship_cargo."\n";
 					$Log	.=	$lang['big_ship_cargo'].": ".$big_ship_cargo."\n";
 					$Log	.=	$lang['light_hunter'].": ".$light_hunter."\n";
@@ -266,7 +266,7 @@ switch($_GET[page])
 
 				if ($_POST['add'] || $_POST['delete'])
 				{
-					$Log	.=	"\n".$lang['log_the_user'].$user['username']." ".$Name.":\n";
+					$Log	 =	"\n".$lang['log_the_user'].$user['username']." ".$Name.":\n";
 					$Log	.=	$lang['misil_launcher'].": ".$misil_launcher."\n";
 					$Log	.=	$lang['small_laser'].": ".$small_laser."\n";
 					$Log	.=	$lang['big_laser'].": ".$big_laser."\n";
@@ -437,7 +437,7 @@ switch($_GET[page])
 
 				if ($_POST['add'] || $_POST['delete'])
 				{
-					$Log	.=	"\n".$lang['log_the_user'].$user['username']." ".$Name.":\n";
+					$Log	 =	"\n".$lang['log_the_user'].$user['username']." ".$Name.":\n";
 					$Log	.=	$lang['metal_mine'].": ".$metal_mine."\n";
 					$Log	.=	$lang['crystal_mine'].": ".$crystal_mine."\n";
 					$Log	.=	$lang['deuterium_sintetizer'].": ".$deuterium_sintetizer."\n";
@@ -552,7 +552,7 @@ switch($_GET[page])
 
 				if ($_POST['add'] || $_POST['delete'])
 				{
-					$Log	.=	"\n".$lang['log_the_user'].$user['username']." ".$Name.":\n";
+					$Log	 =	"\n".$lang['log_the_user'].$user['username']." ".$Name.":\n";
 					$Log	.=	$lang['spy_tech'].": ".$spy_tech."\n";
 					$Log	.=	$lang['computer_tech'].": ".$computer_tech."\n";
 					$Log	.=	$lang['military_tech'].": ".$military_tech."\n";
@@ -699,7 +699,7 @@ switch($_GET[page])
 
 				if ($_POST['add'] || $_POST['delete'])
 				{
-					$Log	.=	"\n".$lang['log_the_user'].$user['username']." ".$Name.":\n";
+					$Log	 =	"\n".$lang['log_the_user'].$user['username']." ".$Name.":\n";
 					$Log	.=	$lang['geologist'].": ".$rpg_geologue."\n";
 					$Log	.=	$lang['admiral'].": ".$rpg_amiral."\n";
 					$Log	.=	$lang['engineer'].": ".$rpg_ingenieur."\n";
@@ -1001,7 +1001,7 @@ switch($_GET[page])
 	if ($user['authlevel'] == 3)
 		$parse['changepersonal'] =
 	'<tr>
-		<th><a href="AccountEditorPage.php?page=personal'.$parse['getuser'].'"><img src="../styles/images/Adm/arrowright.png" width="16" height="10"/> '.$lang['ad_editor_personal'].'</a></th>
+		<th><a href="AccountEditorPage.php?page=personal"><img src="../styles/images/Adm/arrowright.png" width="16" height="10"/> '.$lang['ad_editor_personal'].'</a></th>
 	</tr>';
 
 

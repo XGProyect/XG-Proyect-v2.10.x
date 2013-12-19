@@ -18,24 +18,25 @@ if ($EditUsers != 1) die(message ($lang['404_page']));
 $parse	=	$lang;
 
 
-switch ($_GET[page])
+switch((isset($_GET['page'])?$_GET['page']:''))
 {
 	case 'new_user':
-	$name		=	$_POST['name'];
-	$pass 		= 	$_POST['password'];
-	$email 		= 	$_POST['email'];
-	$galaxy		=	$_POST['galaxy'];
-	$system		=	$_POST['system'];
-	$planet		=	$_POST['planet'];
-	$auth		=	$_POST['authlevel'];
+	$name		=	isset ( $_POST['name'] ) ? $_POST['name'] : '';
+	$pass 		= 	isset ( $_POST['password'] ) ? $_POST['password'] : '';
+	$email 		= 	isset ( $_POST['email'] ) ? $_POST['email'] : '';
+	$galaxy		=	isset ( $_POST['galaxy'] ) ? $_POST['galaxy'] : '';
+	$system		=	isset ( $_POST['system'] ) ? $_POST['system'] : '';
+	$planet		=	isset ( $_POST['planet'] ) ? $_POST['planet'] : '';
+	$auth		=	isset ( $_POST['authlevel'] ) ? $_POST['authlevel'] : '';
 	$time		=	time();
 	$i			=	0;
-
+	
+	$parse['uplvels']	= '';
 
 	for ($L = 0; $L < 4; $L++)
 	{
 		if ($user['authlevel'] == 3)
-			$parse['uplvels']	.= "<option value=\"".$L."\">".$lang['rank'][$L]."</option>";
+			$parse['uplvels']	 .= "<option value=\"".$L."\">".$lang['rank'][$L]."</option>";
 		else
 			$parse['uplvels']	 = '<option value="0">'.$lang['rank'][0].'</option>';
 	}
@@ -47,6 +48,7 @@ switch ($_GET[page])
 		$CheckMail = doquery("SELECT `email` FROM {{table}} WHERE `email` = '" . mysql_escape_value($_POST['email']) . "' LIMIT 1", "users", TRUE);
 		$CheckRows = doquery("SELECT * FROM {{table}} WHERE `galaxy` = '".$galaxy."' AND `system` = '".$system."' AND `planet` = '".$planet."' LIMIT 1", "galaxy", TRUE);
 
+		$parse['display']	= '';
 
 		if (!ctype_digit($galaxy) &&  !ctype_digit($system) && !ctype_digit($planet)){
 			$parse['display']	.=	'<tr><th colspan="2" class="red">'.$lang['only_numbers'].'</tr></th>';

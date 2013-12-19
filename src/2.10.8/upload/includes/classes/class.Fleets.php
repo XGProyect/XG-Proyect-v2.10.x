@@ -98,6 +98,8 @@ class Fleets
 			$fleet_array[$fleet] =  1;
 		}	
 			
+		$speed_all	= array();	
+			
 		foreach ( $fleet_array as $ship => $count )
 		{
 			if ( $ship == 202 )
@@ -145,7 +147,7 @@ class Fleets
 	
 		if ( $fleet != 0 )
 		{
-			$ship_speed	= $speed_all[$ship];
+			$ship_speed	= isset ( $speed_all[$ship] ) ? $speed_all[$ship] : '';
 			$speed_all	= $ship_speed;
 		}
 	

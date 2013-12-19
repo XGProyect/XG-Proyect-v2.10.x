@@ -87,6 +87,8 @@ class FlyingFleetHandler
 		global $lang, $resource;
 
 		$LookAtLoop = TRUE;
+		$Count		= 0;
+		
 		if ($Mode == 0)
 		{
 			$String  = "<table width=\"440\"><tr><td class=\"c\" colspan=\"5\">";
@@ -140,7 +142,7 @@ class FlyingFleetHandler
 				$row     = 0;
 				for ($Item = $ResFrom[$CurrentLook]; $Item <= $ResTo[$CurrentLook]; $Item++)
 				{
-					if ( $TargetPlanet[$resource[$Item]] > 0)
+					if ( isset ( $resource[$Item] ) && $TargetPlanet[$resource[$Item]] > 0)
 					{
 						if ($row == 0)
 							$String  .= "<tr>";

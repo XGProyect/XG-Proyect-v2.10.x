@@ -4,13 +4,14 @@ $lang['Version']     = 'Versión';
 $lang['Description'] = 'Descripción';
 $lang['changelog']   = array(
 
-'2.10.8' => ' 04/12/2013
+'2.10.8' => '19/12/2013
 - [Mejoras]
 - Más notices corregidos.-
 
 - [Bugs]
 #00050: Bug que no permitía intercambiar recursos con el mercader.-
 #00051: Bug que no permitía cambiar el rango a un usuario en una alianza.-
+#00081: Bug que no mostraba correctamente algunos caracteres en la alianza (By xxdarkinsidesxx).-
 ',
 
 '2.10.7' => ' 20/11/2013
