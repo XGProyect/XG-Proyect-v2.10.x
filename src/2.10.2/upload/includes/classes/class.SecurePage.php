@@ -3,7 +3,7 @@
 /**
  * @project XG Proyect
  * @version 2.10.x build 0000
- * @copyright Copyright (C) 2008 - 2012
+ * @copyright Copyright (C) 2008 - 2016
  */
 
  // This class is originally developed by "Bendikt Martin Myklebust" this is updated by "Rakesh Chandel".
