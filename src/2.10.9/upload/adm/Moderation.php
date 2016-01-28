@@ -52,7 +52,7 @@ if ($_GET['moderation'] == '1')
 	$parse['oper']	=	$lang['rank'][2];
 	$parse['adm']	=	$lang['rank'][3];
 
-	if ($_POST['mode'])
+	if (isset($_POST['mode']))
 	{
 		if($_POST['view_m'] == 'on') $view_m = 1; else $view_m = 0;
 		if($_POST['edit_m'] == 'on') $edit_m = 1; else $edit_m = 0;
@@ -98,12 +98,16 @@ if ($_GET['moderation'] == '1')
 }
 elseif ($_GET['moderation'] == '2')
 {
+                $parse['authlevels'] = '';
+    
 		for ($i	= 0; $i < 4; $i++)
 		{
 			$parse['authlevels']	.=	"<option value=\"".$i."\">".$lang['rank'][$i]."</option>";
 		}
 
-
+                $_GET['get']    = isset($_GET['get']) ? $_GET['get'] : '';
+                $WHEREUSERS     = '';
+                
 		if ($_GET['get'] == 'adm')
 			$WHEREUSERS	=	"WHERE `authlevel` = '3'";
 		elseif ($_GET['get'] == 'ope')
@@ -114,8 +118,8 @@ elseif ($_GET['moderation'] == '2')
 			$WHEREUSERS	=	"WHERE `authlevel` = '0'";
 
 
-		$QueryUsers	=	doquery("SELECT `id`, `username`, `authlevel` FROM {{table}} ".$WHEREUSERS."", "users");
-
+		$QueryUsers	= doquery("SELECT `id`, `username`, `authlevel` FROM {{table}} ".$WHEREUSERS."", "users");
+                $parse['List']  = '';
 
 		while ($List	=	mysql_fetch_array($QueryUsers))
 		{
@@ -173,8 +177,8 @@ elseif ($_GET['moderation'] == '2')
 			}
 		}
 
-		if ($_GET['succes']	==	'yes')
-			$parse['display']	=	'<tr><th colspan="3"><font color=lime>'.$lang['ad_authlevel_succes'].'</font></th></tr>';
+		if (isset($_GET['succes']) && $_GET['succes'] == 'yes')
+                    $parse['display'] = '<tr><th colspan="3"><font color=lime>'.$lang['ad_authlevel_succes'].'</font></th></tr>';
 
 
 		display (parsetemplate(gettemplate("adm/AuthlevelBody"), $parse), FALSE, '', TRUE, FALSE);

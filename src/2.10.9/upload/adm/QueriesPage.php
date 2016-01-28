@@ -16,7 +16,7 @@ include(XGP_ROOT . 'global.php');
 if ($user['authlevel'] != 3) die(message ($lang['404_page']));
 
 $parse 	= $lang;
-$Query	=	$_POST['querie'];
+$Query	= isset($_POST['querie']) ? $_POST['querie'] : '';
 
 if ($_POST)
 {
@@ -30,7 +30,7 @@ if ($_POST)
 	}
 	else
 	{
-		$Log	.=	"\n".$lang['log_queries_title']."\n";
+		$Log	 =	"\n".$lang['log_queries_title']."\n";
 		$Log	.=	$lang['log_the_user'].$user['username']." ".$lang['log_queries_succes']."\n";
 		$Log	.=	$Query."\n";
 		LogFunction($Log, "GeneralLog", $LogCanWork);

@@ -33,7 +33,7 @@ switch ( ( isset ( $_GET['options'] ) ? $_GET['options'] : NULL ))
 	case 'edit':
 		if ($user['authlevel']	!=	3) die();
 		$Fopen		=	fopen($Archive, "r+");
-
+                $parse['display'] = '';
 		while(!feof($Fopen))
 		{
     		$parse['display']	.= fgets($Fopen);
@@ -41,7 +41,7 @@ switch ( ( isset ( $_GET['options'] ) ? $_GET['options'] : NULL ))
 		fclose($Fopen);
 
 
-		if ($_POST['editnow'])
+		if (isset($_POST['editnow']) && $_POST['editnow'])
 		{
 			$Fopen2	=	fopen($Archive, "w+");
 			fputs($Fopen2, $_POST['text']);

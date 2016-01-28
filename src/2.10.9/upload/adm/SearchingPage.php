@@ -53,18 +53,19 @@ function MyCrazyLittleSearch($SpecifyItems, $WhereItem, $SpecifyWhere, $SpecialS
 	$QueryCSearch	.=	$WhereItem." ";
 	$QueryCSearch	.=	$SpecifyWhere." ".$SpecialSpecify." ";
 	$CountQuery		=	doquery($QueryCSearch, $Table, TRUE);
-
+        $Result = '';
+        
 	if ($CountQuery['total'] > 0)
 	{
 		$NumberOfPages = ceil($CountQuery['total'] / $Limit);
 
-		$UrlForPage	=	"SearchingPage.php?search=".$_GET['search']."
-						&search_in=".$_GET['search_in']."
-						&fuki=".$_GET['fuki']."
-						&key_user=".$_GET['key_user']."
-						&key_order=".$_GET['key_order']."
-						&key_acc=".$_GET['key_acc']."
-						&Limit=".$_GET['Limit'];
+		$UrlForPage	=	"SearchingPage.php?search=".(isset($_GET['search'])?$_GET['search']:'')."
+						&search_in=".(isset($_GET['search_in'])?$_GET['search_in']:'')."
+						&fuki=".(isset($_GET['fuki'])?$_GET['fuki']:'')."
+						&key_user=".(isset($_GET['key_user'])?$_GET['key_user']:'')."
+						&key_order=".(isset($_GET['key_order'])?$_GET['key_order']:'')."
+						&key_acc=".(isset($_GET['key_acc'])?$_GET['key_acc']:'')."
+						&Limit=".(isset($_GET['Limit'])?$_GET['Limit']:'');
 
 		if($NumberOfPages > 1)
 		{
@@ -214,12 +215,12 @@ function MyCrazyLittleSearch($SpecifyItems, $WhereItem, $SpecifyWhere, $SpecialS
 
 // BORRADO
 include_once(XGP_ROOT . 'includes/functions/DeleteSelectedUser.php');
-if ($_GET['delete'] == 'user'){
+if (isset($_GET['delete']) && $_GET['delete'] == 'user'){
 	DeleteSelectedUser ($_GET['user']);
 	$Log	.=	"\n".$lang['log_searchindb_del1'].$_GET['user'].$lang['log_searchindb_del2'].$user['username']."\n";
 	LogFunction($Log, "GeneralLog", $LogCanWork);
 	message($lang['se_delete_succes_p'], "SearchingPage.php?search=users&minimize=on", 2);}
-elseif ($_GET['delete'] == 'planet'){
+elseif (isset($_GET['delete']) && $_GET['delete'] == 'planet'){
 	DeleteSelectedPlanet ($_GET['planet']);
 	$Log	.=	"\n".$lang['log_searchindb_del3'].$_GET['planet'].$lang['log_searchindb_del2'].$user['username']."\n";
 	LogFunction($Log, "GeneralLog", $LogCanWork);
@@ -228,17 +229,17 @@ elseif ($_GET['delete'] == 'planet'){
 
 
 
-$SearchFile		=	$_GET['search'];
-$SearchFor		=	$_GET['search_in'];
-$SearchMethod	=	$_GET['fuki'];
-$SpecifyWhere	=	$parse['Key']	=	$_GET['key_user'];
-$Page 			= 	$_GET['Page'];
-$Order			=	$_GET['key_order'];
-$OrderBY		=	$_GET['key_acc'];
-((!$_GET['Limit']) ? $Limit	=	'25' : $Limit	=	$_GET['Limit']);
+$SearchFile		=   isset($_GET['search']) ? $_GET['search'] : '';
+$SearchFor		=   isset($_GET['search_in']) ? $_GET['search_in'] : '';
+$SearchMethod           =   isset($_GET['fuki']) ? $_GET['fuki'] : '';
+$SpecifyWhere           =   $parse['Key'] = isset($_GET['key_user']) ? $_GET['key_user'] : '';
+$Page 			=   isset($_GET['Page']) ? $_GET['Page'] : '';
+$Order			=   isset($_GET['key_order']) ? $_GET['key_order'] : '';
+$OrderBY		=   isset($_GET['key_acc']) ? $_GET['key_acc'] : '';
+$Limit                  =   isset($_GET['Limit']) ? $_GET['Limit'] : '25';
 
 
-// TABLA DE BÚSQUEDA
+// TABLA DE Bï¿½SQUEDA
 $parse['OPT_LIST']	 =	'<option value="users"'.(($SearchFile == "users") ? " selected": "").'>'.$lang['se_users'].'</option>';
 $parse['OPT_LIST']	.=	'<option value="planet"'.(($SearchFile == "planet") ? " selected": "").'>'.$lang['se_planets'].'</option>';
 $parse['OPT_LIST']	.=	'<option value="moon"'.(($SearchFile == "moon") ? " selected": "").'>'.$lang['se_moons'].'</option>';
@@ -250,11 +251,11 @@ $parse['OPT_LIST']	.=	'<option value="inactives"'.(($SearchFile == "inactives") 
 $parse['OPT_LIST']	.=	'<option value="online"'.(($SearchFile == "online") ? " selected": "").'>'.$lang['online_users'].'</option>';
 $parse['OPT_LIST']	.=	'<option value="p_connect"'.(($SearchFile == "p_connect") ? " selected": "").'>'.$lang['se_planets_act'].'</option>';
 
-// BÚSQUEDA POR ID O NOMBRE
+// Bï¿½SQUEDA POR ID O NOMBRE
 $parse['OPT_SEARCH']	 =	'<option value="name"'.(($SearchFor == "name") ? " selected": "").((!$SearchFor) ? " selected": "").'>'.$lang['se_input_name'].'</option>';
 $parse['OPT_SEARCH']	.=	'<option value="id"'.(($SearchFor == "id") ? " selected": "").'>'.$lang['input_id'].'</option>';
 
-// TIPO DE FILTRO: BÚSQUEDA EXACTA, NORMAL, ETC
+// TIPO DE FILTRO: Bï¿½SQUEDA EXACTA, NORMAL, ETC
 $parse['EXT_LIST']	 =	'<option value="normal"'.(($SearchMethod == "normal") ? " selected": "").'>'.$lang['se_type_all'].'</option>';
 $parse['EXT_LIST']	.=	'<option value="exacto"'.(($SearchMethod == "exacto") ? " selected": "").'>'.$lang['se_type_exact'].'</option>';
 $parse['EXT_LIST']	.=	'<option value="last"'.(($SearchMethod == "last") ? " selected": "").'>'.$lang['se_type_last'].'</option>';
@@ -265,7 +266,7 @@ $parse['ORDER']	 =	'<option value="ASC"'.(($OrderBY == "ASC") ? " selected": "")
 $parse['ORDER']	.=	'<option value="DESC"'.(($OrderBY == "DESC") ? " selected": "").'>'.$lang['se_input_desc'].'</option>';
 
 // LIMITE DE USUARIOS A MOSTRAR
-$parse['LIMIT']	 .=	'<option value="1"'.(($Limit == '1') ? " selected": "").'>1</option>';
+$parse['LIMIT']	  =	'<option value="1"'.(($Limit == '1') ? " selected": "").'>1</option>';
 $parse['LIMIT']	 .=	'<option value="5"'.(($Limit == '5') ? " selected": "").'>5</option>';
 $parse['LIMIT']	 .=	'<option value="10"'.(($Limit == '10') ? " selected": "").'>10</option>';
 $parse['LIMIT']	 .=	'<option value="15"'.(($Limit == '15') ? " selected": "").'>15</option>';
@@ -329,6 +330,8 @@ if ($_GET)
 		$ArrayOSec		=	array("id", "username", "email_2", "onlinetime", "register_time", "user_lastip", "authlevel", "bana", "urlaubs_modus");
 		$Array0SecCount	=	count($ArrayOSec);
 
+                $OrderBYParse = '';
+                
 		for ($OrderNum = 0; $OrderNum < $Array0SecCount; $OrderNum++)
 			$OrderBYParse	 .=	'<option value="'.$ArrayOSec[$OrderNum].'"'.(($Order == $ArrayOSec[$OrderNum]) ? " selected": "").'>'.$lang['se_search_users'][$OrderNum].'</option>';
 	}
@@ -358,7 +361,8 @@ if ($_GET)
 
 		$ArrayOSec		=	array("id", "name", "id_owner", "last_update", "galaxy", "system", "planet");
 		$Array0SecCount	=	count($ArrayOSec);
-
+                $OrderBYParse = '';
+                
 		for ($OrderNum = 0; $OrderNum < $Array0SecCount; $OrderNum++)
 			$OrderBYParse	 .=	'<option value="'.$ArrayOSec[$OrderNum].'"'.(($Order == $ArrayOSec[$OrderNum]) ? " selected": "").'>'.$lang['se_search_planets'][$OrderNum].'</option>';
 	}
