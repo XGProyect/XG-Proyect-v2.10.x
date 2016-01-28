@@ -64,11 +64,14 @@ if ($Observation != 1) die(message ($lang['404_page']));
 	{
 		if ($DelSel == TRUE)
 		{
+                    if (is_array($_POST['sele'])) {
+                        
 			foreach($_POST['sele'] as $MessId => $Value)
 			{
 				if ($Value = "on")
 					doquery ( "DELETE FROM {{table}} WHERE `message_id` = '". $MessId ."';", 'messages');
-			}
+			}   
+                    }
 		}
 	}
 
@@ -122,6 +125,8 @@ if ($Observation != 1) die(message ($lang['404_page']));
 	elseif ($Selected == 100)
 		$Messages            = doquery("SELECT * FROM {{table}} ORDER BY `message_time` DESC LIMIT ". $StartRec .",25;", 'messages');
 
+                $parse['mlst_data_rows'] = '';
+                
 		while ($row = mysql_fetch_assoc($Messages))
 		{
 			$OwnerData = doquery ("SELECT `username` FROM {{table}} WHERE `id` = '". $row['message_owner'] ."';", 'users',TRUE);

@@ -91,7 +91,7 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 		}
 		else
 		{
-			$parse['display']	=	'<tr><th colspan="2"><font color=red>'.$lang['ad_only_numbers'].'</font></th></tr>';
+			$parse['display']	=	'<tr><th colspan="2"><font color=red>'.$lang['only_numbers'].'</font></th></tr>';
 		}
 
 	}
@@ -197,7 +197,7 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 			}
 			else
 			{
-				$parse['display']	=	'<tr><th colspan="3"><font color=red>'.$lang['ad_only_numbers'].'</font></th></tr>';
+				$parse['display']	=	'<tr><th colspan="3"><font color=red>'.$lang['only_numbers'].'</font></th></tr>';
 			}
 		}
 
@@ -284,7 +284,7 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 			}
 			else
 			{
-				$parse['display']	=	'<tr><th colspan="3"><font color=red>'.$lang['ad_only_numbers'].'</font></th></tr>';
+				$parse['display']	=	'<tr><th colspan="3"><font color=red>'.$lang['only_numbers'].'</font></th></tr>';
 			}
 		}
 
@@ -463,7 +463,7 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 			}
 			else
 			{
-				$parse['display']	=	'<tr><th colspan="3"><font color=red>'.$lang['ad_only_numbers'].'</font></th></tr>';
+				$parse['display']	=	'<tr><th colspan="3"><font color=red>'.$lang['only_numbers'].'</font></th></tr>';
 			}
 		}
 
@@ -576,7 +576,7 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 			}
 			else
 			{
-				$parse['display']	=	'<tr><th colspan="3"><font color=red>'.$lang['ad_only_numbers'].'</font></th></tr>';
+				$parse['display']	=	'<tr><th colspan="3"><font color=red>'.$lang['only_numbers'].'</font></th></tr>';
 			}
 		}
 
@@ -598,7 +598,7 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 			}
 			else
 			{
-				$Log    .=    "\n".$lang['log_the_user'].$user['username']." ".$lang['log_modify_personal'].":\n";
+				$Log    =    "\n".$lang['log_the_user'].$user['username']." ".$lang['log_modify_personal'].":\n";
 
 				$PersonalQuery    =    "UPDATE {{table}} SET ";
 
@@ -711,7 +711,7 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 			}
 			else
 			{
-				$parse['display']	=	'<tr><th colspan="3"><font color=red>'.$lang['ad_only_numbers'].'</font></th></tr>';
+				$parse['display']	=	'<tr><th colspan="3"><font color=red>'.$lang['only_numbers'].'</font></th></tr>';
 			}
 		}
 
@@ -721,28 +721,27 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 	case 'planets':
 		if ($_POST)
 		{
-			$id				=	$_POST['id'];
-			$name			=	$_POST['name'];
-			$change_id		=	$_POST['change_id'];
-
-			$diameter		=	$_POST['diameter'];
-			$fields			=	$_POST['fields'];
-			$buildings		=	$_POST['0_buildings'];
-			$ships			=	$_POST['0_ships'];
-			$defenses		=	$_POST['0_defenses'];
-			$c_hangar		=	$_POST['0_c_hangar'];
-			$c_buildings	=	$_POST['0_c_buildings'];
-			$change_pos		=	$_POST['change_position'];
-			$galaxy			=	$_POST['g'];
-			$system			=	$_POST['s'];
-			$planet			=	$_POST['p'];
-			$delete			=	$_POST['delete'];
+			$id			= isset($_POST['id']) ? $_POST['id'] : '';
+			$name			= isset($_POST['name']) ? $_POST['name'] : '';
+			$change_id		= isset($_POST['change_id']) ? $_POST['change_id'] : '';
+			$diameter		= isset($_POST['diameter']) ? $_POST['diameter'] : '';
+			$fields			= isset($_POST['fields']) ? $_POST['fields'] : '';
+			$buildings		= isset($_POST['0_buildings']) ? $_POST['0_buildings'] : '';
+			$ships			= isset($_POST['0_ships']) ? $_POST['0_ships'] : '';
+			$defenses		= isset($_POST['0_defenses']) ? $_POST['0_defenses'] : '';
+			$c_hangar		= isset($_POST['0_c_hangar']) ? $_POST['0_c_hangar'] : '';
+			$c_buildings            = isset($_POST['0_c_buildings']) ? $_POST['0_c_buildings'] : '';
+			$change_pos		= isset($_POST['change_position']) ? $_POST['change_position'] : '';
+			$galaxy			= isset($_POST['g']) ? $_POST['g'] : '';
+			$system			= isset($_POST['s']) ? $_POST['s'] : '';
+			$planet			= isset($_POST['p']) ? $_POST['p'] : '';
+			$delete			= isset($_POST['delete']) ? $_POST['delete'] : '';
 
 			if ($id != NULL)
 			{
 			 	if (is_numeric($id))
 			 	{
-					$Log	.=	"\n".$lang['log_the_user'].$user['username']." ".$lang['log_modify_personal'].":\n";
+					$Log	=	"\n".$lang['log_the_user'].$user['username']." ".$lang['log_modify_personal'].":\n";
 
 				if ($delete != 'on')
 				{
@@ -860,12 +859,12 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 						}
 						else
 						{
-							$Error	.=	'<tr><th colspan="3"><font color=red>'.$lang['ad_only_numbers'].'</font></th></tr>';
+							$Error	.=	'<tr><th colspan="3"><font color=red>'.$lang['only_numbers'].'</font></th></tr>';
 						}
 					}
 
 					$parse['display']	=	'<tr><th colspan="3"><font color=lime>'.$lang['ad_pla_succes'].'</font></th></tr>';
-					$parse['display2']	=	$Error;
+					$parse['display2']	=	!isset($Error) ? '' : $Error;
 				}
 				else
 				{
@@ -905,15 +904,15 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 	case 'alliances':
 		if ($_POST)
 		{
-			$id				=	$_POST['id'];
-			$name			=	$_POST['name'];
-			$changeleader	=	$_POST['changeleader'];
-			$tag			=	$_POST['tag'];
-			$externo		=	$_POST['externo'];
-			$interno		=	$_POST['interno'];
-			$solicitud		=	$_POST['solicitud'];
-			$delete			=	$_POST['delete'];
-			$delete_u		=	$_POST['delete_u'];
+			$id			= isset($_POST['id']) ? $_POST['id'] : '';
+			$name			= isset($_POST['name']) ? $_POST['name'] : '';
+			$changeleader           = isset($_POST['changeleader']) ? $_POST['changeleader'] : '';
+			$tag			= isset($_POST['tag']) ? $_POST['tag'] : '';
+			$externo		= isset($_POST['externo']) ? $_POST['externo'] : '';
+			$interno		= isset($_POST['interno']) ? $_POST['interno'] : '';
+			$solicitud		= isset($_POST['solicitud']) ? $_POST['solicitud'] : '';
+			$delete			= isset($_POST['delete']) ? $_POST['delete'] : '';
+			$delete_u		= isset($_POST['delete_u']) ? $_POST['delete_u'] : '';
 
 			if ($id != NULL)
 			{
@@ -921,7 +920,7 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 
 			 	if ($QueryF)
 			 	{
-					$Log	.=	"\n".$lang['log_the_user'].$user['username']." ".$lang['log_modify_personal'].":\n";
+					$Log	=	"\n".$lang['log_the_user'].$user['username']." ".$lang['log_modify_personal'].":\n";
 
 					if ($name != NULL){
 						doquery("UPDATE {{table}} SET `ally_name` = '".$name."' WHERE `id` = '".$id."'", "alliance");

@@ -14,6 +14,7 @@ $lang['changelog']   = array(
 
 - [Bugs]
 - Corregidos varios errores de PHP y caracteres durante la instalación.-
+- Corregidos errores menores gracias a la eliminación de notices.-
 ',
     
 '2.10.8' => '19/12/2013
