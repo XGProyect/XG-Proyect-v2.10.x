@@ -20,10 +20,12 @@ $parse = $lang;
 switch ( ( isset ( $_GET['page'] ) ) )
 {
 	case'lostpassword':
-		function sendnewpassword($mail)
+		function sendnewpassword($_mail)
 		{
 			global $lang;
 
+                        $mail = mysql_real_escape_string($_mail);
+                        
 			$ExistMail = doquery("SELECT `email` FROM {{table}} WHERE `email` = '". $mail ."' LIMIT 1;", 'users', TRUE);
 
 			if (empty($ExistMail['email']))
