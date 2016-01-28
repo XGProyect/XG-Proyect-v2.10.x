@@ -25,7 +25,7 @@ $lang['time_seconds']	= 'Segundos';
 //###########################################################//
 
 
-//---------------	¿SI O NO? - YES OR NO?	------------------------//
+//---------------	ï¿½SI O NO? - YES OR NO?	------------------------//
 $lang['one_is_yes'][1]	= 'Si';
 $lang['one_is_yes'][0]	= 'No';
 
@@ -156,17 +156,6 @@ $lang['geologist']				= 'Ge&oacute;logo';
 $lang['admiral']				= 'Almirante';
 $lang['engineer']				= 'Ingeniero';
 $lang['technocrat']				= 'Tecn&oacute;crata';
-$lang['spy']					= 'Esp&iacute;a';
-$lang['constructor']			= 'Constructor';
-$lang['scientific']				= 'Cient&iacute;fico';
-$lang['commander']				= 'Comandante';
-$lang['storer']					= 'Almacenista';
-$lang['defender']				= 'Defensor';
-$lang['destroyer']				= 'Destructor';
-$lang['general']				= 'General';
-$lang['protector']				= 'Protector';
-$lang['conqueror']				= 'Conquistador';
-$lang['emperor']				= 'Emperador';
 //###########################################################//
 
 

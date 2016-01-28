@@ -228,7 +228,7 @@ elseif (isset($_GET['delete']) && $_GET['delete'] == 'planet'){
 	}
 
 
-
+$Minimize               =   '';
 $SearchFile		=   isset($_GET['search']) ? $_GET['search'] : '';
 $SearchFor		=   isset($_GET['search_in']) ? $_GET['search_in'] : '';
 $SearchMethod           =   isset($_GET['fuki']) ? $_GET['fuki'] : '';
@@ -288,7 +288,7 @@ else
 	$SpecifyWhere	=	"LIKE '%".$SpecifyWhere."%'";
 
 // MINIMIZADOR
-if ($_GET['minimize'] == 'on')
+if (isset($_GET['minimize']) && $_GET['minimize'] == 'on')
 {
 	$Minimize				=	"&minimize=on";
 	$parse['minimize']		=	'checked = "checked"';
@@ -297,11 +297,12 @@ if ($_GET['minimize'] == 'on')
 
 if ($_GET)
 {
-	$ArrayUsers		=	array("users", "vacation", "admin", "inactives", "online");
-	$ArrayPlanets	=	array("planet", "moon", "p_connect");
-	$ArrayBanned	=	array("banned");
-	$ArrayAlliance	=	array("alliance");
-
+	$ArrayUsers	= array("users", "vacation", "admin", "inactives", "online");
+	$ArrayPlanets	= array("planet", "moon", "p_connect");
+	$ArrayBanned	= array("banned");
+	$ArrayAlliance	= array("alliance");
+        $SpecialSpecify = '';
+        
 	if (in_array($SearchFile, $ArrayUsers))
 	{
 		$Table			=	"users";

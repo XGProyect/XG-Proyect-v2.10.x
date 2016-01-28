@@ -98,7 +98,7 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 
 			$ID_USER 	= doquery("SELECT `id` FROM {{table}} WHERE `username` = '" . mysql_escape_value($name) . "' LIMIT 1", "users", TRUE);
 
-			CreateOnePlanetRecord ($galaxy, $system, $planet, $ID_USER['id'], $UserPlanet, TRUE);
+			CreateOnePlanetRecord ($galaxy, $system, $planet, $ID_USER['id'], '', TRUE);
 
 			$ID_PLANET 	= doquery("SELECT `id` FROM {{table}} WHERE `id_owner` = '". $ID_USER['id'] ."' LIMIT 1" , "planets", TRUE);
 
@@ -116,12 +116,12 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 			doquery($QryUpdateUser, "users");
 
 
-			$Log	.=	"\n".$lang['log_new_user_title']."\n";
+			$Log	 =	"\n".$lang['log_new_user_title']."\n";
 			$Log	.=	$lang['log_the_user'].$user['username'].$lang['log_new_user'].":\n";
 			$Log	.=	$lang['log_new_user_name'].": ".$name."\n";
 			$Log	.=	$lang['log_new_user_coor'].": [".$galaxy.":".$system.":".$planet."]\n";
 			$Log	.=	$lang['log_new_user_email'].": ".$email."\n";
-			$Log	.=	$lang['log_new_user_auth'].": ".$lang['new_range11'][$auth]."\n";
+			$Log	.=	$lang['log_new_user_auth'].": ".$lang['rank'][$auth]."\n";
 
 			LogFunction($Log, "GeneralLog", $LogCanWork);
 			$parse['display']	=	'<tr><th colspan="2"><font color=lime>'.$lang['new_user_success'].'</font></tr></th>';
@@ -283,7 +283,7 @@ switch((isset($_GET['page'])?$_GET['page']:''))
 	break;
 
 	case 'new_planet':
-	$mode      = $_POST['mode'];
+	$mode      = isset($_POST['mode']) ? $_POST['mode'] : '';
 
 	if ($_POST && $mode == 'agregar')
 	{

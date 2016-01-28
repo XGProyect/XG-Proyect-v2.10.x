@@ -332,17 +332,17 @@ td.blank{border:0px;background:url(images/Adm/blank.gif);text-align:right;paddin
 			<tr><th>{computer_tech}: <font color=aqua>{tec_compu}</font></th><th>{admiral}: <font color=aqua>{ofi_almirante}</font></th></tr>
 			<tr><th>{military_tech}: <font color=aqua>{tec_militar}</font></th><th>{engineer}: <font color=aqua>{ofi_ingeniero}</font></th></tr>
 			<tr><th>{defence_tech}: <font color=aqua>{tec_defensa}</font></th><th>{technocrat}: <font color=aqua>{ofi_tecnocrata}</font></th></tr>
-			<tr><th>{shield_tech}: <font color=aqua>{tec_blindaje}</font></th><th>{spy}: <font color=aqua>{ofi_espia}</font></th></tr>
-			<tr><th>{energy_tech}: <font color=aqua>{tec_energia}</font></th><th>{constructor}: <font color=aqua>{ofi_constructor}</font></th></tr>
-			<tr><th>{hyperspace_tech}: <font color=aqua>{tec_hiperespacio}</font></th><th>{scientific}: <font color=aqua>{ofi_cientifico}</font></th></tr>
-			<tr><th>{combustion_tech}: <font color=aqua>{tec_combustion}</font></th><th>{commander}: <font color=aqua>{ofi_comandante}</font></th></tr>
-			<tr><th>{impulse_motor_tech}: <font color=aqua>{tec_impulso}</font></th><th>{storer}: <font color=aqua>{ofi_almacenista}</font></th></tr>
-			<tr><th>{hyperspace_motor_tech}: <font color=aqua>{tec_hiperespacio_p}</font></th><th>{defender}: <font color=aqua>{ofi_defensa}</font></th></tr>
-			<tr><th>{laser_tech}: <font color=aqua>{tec_laser}</font></th><th>{destroyer}: <font color=aqua>{ofi_destructor}</font></th></tr>
-			<tr><th>{ionic_tech}: <font color=aqua>{tec_ionico}</font></th><th>{general}: <font color=aqua>{ofi_general}</font></th></tr>
-			<tr><th>{buster_tech}: <font color=aqua>{tec_plasma}</font></th><th>{protector}: <font color=aqua>{ofi_bunker}</font></th></tr>
-			<tr><th>{intergalactic_tech}: <font color=aqua>{tec_intergalactico}</font></th><th>{conqueror}: <font color=aqua>{ofi_conquis}</font></th></tr>
-			<tr><th>{expedition_tech}: <font color=aqua>{tec_expedicion}</font></th><th>{emperor}: <font color=aqua>{ofi_emperador}</font></th></tr>
+			<tr><th>{shield_tech}: <font color=aqua>{tec_blindaje}</font></th><th>&nbsp;</th></tr>
+			<tr><th>{energy_tech}: <font color=aqua>{tec_energia}</font></th><th>&nbsp;</th></tr>
+			<tr><th>{hyperspace_tech}: <font color=aqua>{tec_hiperespacio}</font></th><th>&nbsp;</th></tr>
+			<tr><th>{combustion_tech}: <font color=aqua>{tec_combustion}</font></th><th>&nbsp;</th></tr>
+			<tr><th>{impulse_motor_tech}: <font color=aqua>{tec_impulso}</font></th><th>&nbsp;</th></tr>
+			<tr><th>{hyperspace_motor_tech}: <font color=aqua>{tec_hiperespacio_p}</font></th><th>&nbsp;</th></tr>
+			<tr><th>{laser_tech}: <font color=aqua>{tec_laser}</font></th><th>&nbsp;</th></tr>
+			<tr><th>{ionic_tech}: <font color=aqua>{tec_ionico}</font></th><th>&nbsp;</th></tr>
+			<tr><th>{buster_tech}: <font color=aqua>{tec_plasma}</font></th><th>&nbsp;</th></tr>
+			<tr><th>{intergalactic_tech}: <font color=aqua>{tec_intergalactico}</font></th><th>&nbsp;</th></tr>
+			<tr><th>{expedition_tech}: <font color=aqua>{tec_expedicion}</font></th><th>&nbsp;</th></tr>
 			<tr><th>{graviton_tech}: <font color=aqua>{tec_graviton}</font></th></tr>
 			</table>
 			<br />

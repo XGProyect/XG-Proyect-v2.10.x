@@ -18,8 +18,8 @@ if ( $Observation != 1 )
 	die(message ($lang['404_page']));
 }
 
-$parse	= $lang;
-
+$parse      = $lang;
+$NOSUPERMI  = '';
 
 if ( $user['authlevel']	!= 3 )
 {
@@ -27,19 +27,20 @@ if ( $user['authlevel']	!= 3 )
 }
 
 $UserWhileLogin		= doquery ( "SELECT `id`, `username`, `authlevel` FROM {{table}} " . $NOSUPERMI . " ORDER BY `username` ASC" , "users" );
+$parse['lista']         = '';
 
 while ( $UserList 	= mysql_fetch_array ( $UserWhileLogin ) )
 {
 	$parse['lista']	.=	"<option value=\"".$UserList['id']."\">" . $UserList['username'] . "&nbsp;&nbsp; (" . $lang['rank'][$UserList['authlevel']] . ")</option>";
 }
 
-if ( $_GET['id_u'] != NULL )
+if ( isset($_GET['id_u']) && $_GET['id_u'] != NULL )
 {
 	$id_u	= $_GET['id_u'];
 }
 else
 {
-	$id_u	= $_GET['id_u2'];
+	$id_u	= isset($_GET['id_u2']) ? $_GET['id_u2'] : '';
 }
 
 $OnlyQueryLogin 	= doquery ( "SELECT `id`, `authlevel` FROM {{table}} WHERE `id` = '" . $id_u . "'" , "users" , TRUE );
@@ -115,7 +116,7 @@ if ($_GET)
 
 		$parse['mo'] = "<a title=\"" . Format::pretty_number ( $UserQuery['darkmatter'] ) . "\">" . Format::shortly_number ( $UserQuery['darkmatter'] ) . "</a>";
 
-		$Log	.=	"\n" . $lang['log_info_detail_title'] . "\n";
+		$Log	 =	"\n" . $lang['log_info_detail_title'] . "\n";
 		$Log	.=	$lang['log_the_user'] . $user['username'] . $lang['log_searchto_1'] . $UserQuery['username'] . "\n";
 
 		LogFunction ( $Log , "GeneralLog" , $LogCanWork );
@@ -294,13 +295,20 @@ if ($_GET)
 
 		$PlanetsQuery = doquery ( "SELECT " . $SpecifyItemsP . " FROM {{table}} WHERE `id_owner` = '" . $id_u . "'" , "planets" );
 
+                $parse['planets_moons'] = '';
+                $parse['resources']     = '';
+                $parse['ships']         = '';
+                $parse['defenses']      = '';
+                $parse['buildings']     = '';
+                $MoonZ  = 0;
+                
 		while ( $PlanetsWhile = mysql_fetch_array ( $PlanetsQuery ) )
 		{
 			if ( $PlanetsWhile['planet_type'] == 3 )
 			{
 				$Planettt = $PlanetsWhile['name'] . "&nbsp;(" . $lang['ac_moon'] . ")<br><font color=aqua>[" . $PlanetsWhile['galaxy'] . ":" . $PlanetsWhile['system'] . ":" . $PlanetsWhile['planet'] . "]</font>";
 
-				$MoonZ		=	0;
+				$MoonZ		= 0;
 				$Moons 		= $PlanetsWhile['name'] . "&nbsp;(" . $lang['ac_moon'] . ")<br><font color=aqua>[" . $PlanetsWhile['galaxy'] . ":" . $PlanetsWhile['system'] . ":" . $PlanetsWhile['planet'] . "]</font>";
 				$MoonZ++;
 			}
@@ -411,9 +419,6 @@ if ($_GET)
 					<th width=\"10%\"><a title=\"".Format::pretty_number($PlanetsWhile['sprungtor'])."\">".Format::shortly_number($PlanetsWhile['sprungtor'])."</a></th>
 					</tr>";
 				}
-
-
-
 
 				if ( $MoonZ != 0 )
 				{

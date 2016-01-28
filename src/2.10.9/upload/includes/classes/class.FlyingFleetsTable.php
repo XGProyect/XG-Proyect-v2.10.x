@@ -116,8 +116,9 @@ class FlyingFleetsTable
 	{
 		global $lang;
 
-		$FlyingFleets = doquery ("SELECT * FROM {{table}} ORDER BY `fleet_end_time` ASC;", 'fleets');
-
+		$FlyingFleets   = doquery ("SELECT * FROM {{table}} ORDER BY `fleet_end_time` ASC;", 'fleets');
+                $table          = '';
+                
 		while ( $CurrentFleet = mysql_fetch_assoc( $FlyingFleets ) )
 		{
 			$FleetOwner       = doquery("SELECT `username` FROM {{table}} WHERE `id` = '". intval($CurrentFleet['fleet_owner']) ."';", 'users', TRUE);
